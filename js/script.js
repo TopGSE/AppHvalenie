@@ -1,15 +1,12 @@
-// Function to display songs dynamically
 function loadSongs() {
     const songList = document.getElementById('song-list');
 
     songs.forEach((song, index) => {
-        // Create list item for each song
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.textContent = song.title;
-        a.href = '#'; // Prevent default page reload
+        a.href = '#';
 
-        // Add click event to load song details
         a.addEventListener('click', () => loadSongDetails(index));
 
         li.appendChild(a);
@@ -17,26 +14,23 @@ function loadSongs() {
     });
 }
 
-// Function to display the song details (lyrics and chords)
 function loadSongDetails(index) {
     const song = songs[index];
 
-    // Create a section to show the lyrics and chords dynamically
     const main = document.querySelector('main');
     main.innerHTML = `
-        
-            <h1>${song.title}</h1>
-            <button id="toggleChords">Show Chords</button>
-      
+	<main class="song-card-home">
+		<h1>${song.title}</h1>
+		<button id="toggleChords">Show Chords</button>
         <div id="lyrics">
             <pre>${song.lyrics}</pre>
         </div>
         <div id="lyricsWithChords" style="display: none;">
             <pre>${song.chords}</pre>
         </div>
+	</main>
     `;
 
-    // Add functionality to toggle between lyrics and chords
     const toggleChordsBtn = document.getElementById('toggleChords');
     const lyrics = document.getElementById('lyrics');
     const lyricsWithChords = document.getElementById('lyricsWithChords');
@@ -54,7 +48,6 @@ function loadSongDetails(index) {
     });
 }
 
-// Search functionality to filter songs
 function filterSongs() {
     const searchInput = document.getElementById('search-bar').value.toLowerCase();
     const songList = document.getElementById('song-list');
@@ -71,5 +64,4 @@ function filterSongs() {
     }
 }
 
-// Load songs when the page is ready
 document.addEventListener("DOMContentLoaded", loadSongs);

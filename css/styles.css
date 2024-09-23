@@ -1,3 +1,4 @@
+/* General styles */
 body {
 	font-family: Arial, sans-serif;
 	background-color: #f7f7f7;
@@ -14,8 +15,12 @@ header {
 
 main {
 	margin: 20px;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
+/* Search bar styles */
 #search-container {
 	margin-bottom: 20px;
 	text-align: center;
@@ -23,11 +28,39 @@ main {
 
 #search-bar {
 	padding: 10px;
-	font-size: 16px;
+	font-size: 1rem;
 	width: 80%;
 	max-width: 600px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+/* Navigation styles */
+nav ul {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	/* Allows wrapping on smaller screens */
+	list-style: none;
+	gap: 20px;
+	padding: 0;
+	margin: 0;
+}
+
+pre {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+ul li {
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	margin-bottom: 20px;
+	flex: 1 1 250px;
+	/* Adjust the size of each item */
+	max-width: 300px;
 }
 
 ul {
@@ -41,10 +74,48 @@ li {
 
 a {
 	text-decoration: none;
-	font-size: 1.2em;
-	color: #333;
+	color: inherit;
 }
 
 a:hover {
 	color: #4CAF50;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+	header {
+		padding: 1em;
+		font-size: 1.2rem;
+	}
+
+	#search-bar {
+		font-size: 1rem;
+		width: 90%;
+		/* Increase the width for smaller screens */
+	}
+
+	ul li {
+		padding: 15px;
+		margin-bottom: 15px;
+		flex: 1 1 100%;
+		/* Make items full width on smaller screens */
+		max-width: none;
+	}
+}
+
+@media (max-width: 480px) {
+	#search-bar {
+		font-size: 0.9rem;
+		width: 95%;
+	}
+
+	header {
+		font-size: 1rem;
+		padding: 0.5em;
+	}
+
+	ul li {
+		padding: 10px;
+		margin-bottom: 10px;
+	}
 }
