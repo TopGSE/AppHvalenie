@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", loadSongs);
 function loadSongs() {
     const songList = document.getElementById('song-list');
 
+	songs.sort((a, b) => a.title.localeCompare(b.title));
+
     songs.forEach((song, index) => {
         const li = document.createElement('li');
         const a = document.createElement('a');
