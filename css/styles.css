@@ -36,20 +36,13 @@ main {
 	box-sizing: border-box;
 }
 
-/* Navigation styles */
-nav ul {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	/* Allows wrapping on smaller screens */
+ul {
 	list-style: none;
-	gap: 20px;
 	padding: 0;
-	margin: 0;
 }
 
-pre {
-	font-family: Arial, Helvetica, sans-serif;
+li {
+	margin: 10px 0;
 }
 
 ul li {
@@ -61,15 +54,6 @@ ul li {
 	flex: 1 1 250px;
 	/* Adjust the size of each item */
 	max-width: 300px;
-}
-
-ul {
-	list-style: none;
-	padding: 0;
-}
-
-li {
-	margin: 10px 0;
 }
 
 a {
@@ -118,4 +102,22 @@ a:hover {
 		padding: 10px;
 		margin-bottom: 10px;
 	}
+}
+
+.song {
+	white-space: pre;
+	font-family: monospace;
+	/* Ensures fixed-width font to align chords */
+	margin: 20px auto;
+	max-width: 800px;
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.chords {
+	color: blue;
+	font-weight: bold;
+	display: none;
 }

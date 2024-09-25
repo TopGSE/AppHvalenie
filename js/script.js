@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", loadSongs);
+
 function loadSongs() {
     const songList = document.getElementById('song-list');
 
@@ -5,10 +7,11 @@ function loadSongs() {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.textContent = song.title;
-        a.href = '#';
-
-        a.addEventListener('click', () => loadSongDetails(index));
-
+        a.href = '#';  // Prevents page reload
+        a.addEventListener('click', (event) => {
+            event.preventDefault();  // Stops the anchor from reloading the page
+            loadSongDetails(index);
+        });
         li.appendChild(a);
         songList.appendChild(li);
     });
@@ -16,34 +19,47 @@ function loadSongs() {
 
 function loadSongDetails(index) {
     const song = songs[index];
-
-    const main = document.querySelector('main');
-    main.innerHTML = `
-	<main class="song-card-home">
-		<h1>${song.title}</h1>
-		<button id="toggleChords">Show Chords</button>
-        <div id="lyrics">
-            <pre>${song.lyrics}</pre>
-        </div>
-        <div id="lyricsWithChords" style="display: none;">
-            <pre>${song.chords}</pre>
-        </div>
-	</main>
-    `;
-
+    const songContainer = document.getElementById('song-container');
+    const songTitle = document.getElementById('song-title');
     const toggleChordsBtn = document.getElementById('toggleChords');
-    const lyrics = document.getElementById('lyrics');
-    const lyricsWithChords = document.getElementById('lyricsWithChords');
 
-    toggleChordsBtn.addEventListener('click', function () {
-        if (lyrics.style.display === "none") {
-            lyrics.style.display = "block";
-            lyricsWithChords.style.display = "none";
-            toggleChordsBtn.textContent = "Show Chords";
+    songTitle.textContent = song.title;
+    songContainer.innerHTML = '';  // Clear previous content
+
+    // Add lyrics and chords
+    for (let i = 0; i < song.lyrics.length; i++) {
+        const chordSpan = document.createElement('span');
+        chordSpan.classList.add('chords');
+        chordSpan.textContent = song.chords[i] || '';
+        chordSpan.style.display = "none";  // Initially hide chords
+        songContainer.appendChild(chordSpan);
+        songContainer.appendChild(document.createElement('br'));
+
+        const lyricsSpan = document.createElement('span');
+        lyricsSpan.textContent = song.lyrics[i];
+        songContainer.appendChild(lyricsSpan);
+        songContainer.appendChild(document.createElement('br'));
+    }
+
+    // Show the toggle button and set it up
+    toggleChordsBtn.style.display = "inline-block";
+    toggleChordsBtn.textContent = "Show Chords";
+    toggleChordsBtn.onclick = function () {
+        toggleChords();
+    };
+}
+
+function toggleChords() {
+    const chordSpans = document.querySelectorAll('.chords');
+    const toggleChordsBtn = document.getElementById('toggleChords');
+
+    chordSpans.forEach(span => {
+        if (span.style.display === "none") {
+            span.style.display = "inline";
+            toggleChordsBtn.textContent = "Hide Chords";
         } else {
-            lyrics.style.display = "none";
-            lyricsWithChords.style.display = "block";
-            toggleChordsBtn.textContent = "Show Lyrics";
+            span.style.display = "none";
+            toggleChordsBtn.textContent = "Show Chords";
         }
     });
 }
@@ -63,5 +79,3 @@ function filterSongs() {
         }
     }
 }
-
-document.addEventListener("DOMContentLoaded", loadSongs);

@@ -8,10 +8,8 @@
 	</head>
 	<body>
 		<header>
-			<h1>Хваление Емануил</>
-			<button>
-				<a href="index.html">Home</a>
-			</button>
+			<h1>Хваление Емануил</h1>
+			<a href="index.html" style="color: white;">Home</a>
 		</header>
 
 		<main>
@@ -20,9 +18,13 @@
 			</div>
 
 			<ul id="song-list"></ul>
+
+			<h1 id="song-title"></h1>
+			<button id="toggleChords" style="display: none;">Show Chords</button>
+			<div id="song-container" class="song"></div>
 		</main>
 
-		<script src="js/songs.js"></script>
-		<script src="js/script.js"></script>
+		<script src="../js/script.js" defer></script>
+		<script src="../js/songs.js" defer></script>
 	</body>
 </html>
