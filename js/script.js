@@ -29,6 +29,7 @@ function loadSongDetails(index) {
     songTitle.textContent = song.title;
     songContainer.innerHTML = '';  
     songList.style.display = "none";  
+	songContainer.style.fontFamily = "Arial, sans-serif";
     songTitle.style.display = "block"; 
 	songContainer.style.display = "block";
 
