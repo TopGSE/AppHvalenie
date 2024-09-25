@@ -7,9 +7,9 @@ function loadSongs() {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.textContent = song.title;
-        a.href = '#';  // Prevents page reload
+        a.href = '#';  
         a.addEventListener('click', (event) => {
-            event.preventDefault();  // Stops the anchor from reloading the page
+            event.preventDefault();  
             loadSongDetails(index);
         });
         li.appendChild(a);
@@ -24,24 +24,33 @@ function loadSongDetails(index) {
     const toggleChordsBtn = document.getElementById('toggleChords');
 
     songTitle.textContent = song.title;
-    songContainer.innerHTML = '';  // Clear previous content
+    songContainer.innerHTML = '';  
 
-    // Add lyrics and chords
+    // Create a separate container for chords
+    const chordsContainer = document.createElement('div');
+    const lyricsContainer = document.createElement('div');
+
+    // Loop through the lyrics and chords
     for (let i = 0; i < song.lyrics.length; i++) {
+        // Create a span for the chord
         const chordSpan = document.createElement('span');
         chordSpan.classList.add('chords');
         chordSpan.textContent = song.chords[i] || '';
-        chordSpan.style.display = "none";  // Initially hide chords
-        songContainer.appendChild(chordSpan);
-        songContainer.appendChild(document.createElement('br'));
+        chordSpan.style.display = "none";  
+        chordsContainer.appendChild(chordSpan);
+        chordsContainer.appendChild(document.createElement('br'));
 
+        // Create a span for the lyrics
         const lyricsSpan = document.createElement('span');
         lyricsSpan.textContent = song.lyrics[i];
-        songContainer.appendChild(lyricsSpan);
-        songContainer.appendChild(document.createElement('br'));
+        lyricsContainer.appendChild(lyricsSpan);
+        lyricsContainer.appendChild(document.createElement('br'));
     }
 
-    // Show the toggle button and set it up
+    // Append the chord and lyrics containers to the song container
+    songContainer.appendChild(chordsContainer);
+    songContainer.appendChild(lyricsContainer);
+
     toggleChordsBtn.style.display = "inline-block";
     toggleChordsBtn.textContent = "Show Chords";
     toggleChordsBtn.onclick = function () {
@@ -56,7 +65,7 @@ function toggleChords() {
     chordSpans.forEach(span => {
         if (span.style.display === "none") {
             span.style.display = "inline";
-            toggleChordsBtn.textContent = "Hide Chords";
+            toggleChordsBtn.textContent = "Show Lyrics";
         } else {
             span.style.display = "none";
             toggleChordsBtn.textContent = "Show Chords";
