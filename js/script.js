@@ -22,17 +22,18 @@ function loadSongDetails(index) {
     const songContainer = document.getElementById('song-container');
     const songTitle = document.getElementById('song-title');
     const toggleChordsBtn = document.getElementById('toggleChords');
+    const songList = document.getElementById('song-list');
 
     songTitle.textContent = song.title;
     songContainer.innerHTML = '';  
+    songList.style.display = "none";  
+    songTitle.style.display = "block"; 
+	songContainer.style.display = "block";
 
-    // Create a separate container for chords
     const chordsContainer = document.createElement('div');
     const lyricsContainer = document.createElement('div');
 
-    // Loop through the lyrics and chords
     for (let i = 0; i < song.lyrics.length; i++) {
-        // Create a span for the chord
         const chordSpan = document.createElement('span');
         chordSpan.classList.add('chords');
         chordSpan.textContent = song.chords[i] || '';
@@ -40,14 +41,12 @@ function loadSongDetails(index) {
         chordsContainer.appendChild(chordSpan);
         chordsContainer.appendChild(document.createElement('br'));
 
-        // Create a span for the lyrics
         const lyricsSpan = document.createElement('span');
         lyricsSpan.textContent = song.lyrics[i];
         lyricsContainer.appendChild(lyricsSpan);
         lyricsContainer.appendChild(document.createElement('br'));
     }
 
-    // Append the chord and lyrics containers to the song container
     songContainer.appendChild(chordsContainer);
     songContainer.appendChild(lyricsContainer);
 
@@ -80,11 +79,6 @@ function filterSongs() {
 
     for (let i = 0; i < songsLi.length; i++) {
         const songTitle = songsLi[i].textContent.toLowerCase();
-
-        if (songTitle.includes(searchInput)) {
-            songsLi[i].style.display = '';
-        } else {
-            songsLi[i].style.display = 'none';
-        }
+        songsLi[i].style.display = songTitle.includes(searchInput) ? '' : 'none';
     }
 }
