@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Register</title>
+		<link rel="stylesheet" href="/css/styles.css">
+	</head>
+	<body>
+		<section class="container forms">
+			<div class="form signup">
+				<div class="form-content">
+					<header>Signup</header>
+					<form id="register-form" action="/auth/register" method="POST">
+						<div class="field input-field">
+							<input type="text" id="register-username" name="username" placeholder="Username" required>
+						</div>
+
+						<div class="field input-field">
+							<input type="password" id="register-password" name="password" placeholder="Password" required>
+						</div>
+
+						<div class="field input-field">
+							<input type="password" id="confirm-password" name="password_confirmation" placeholder="Confirm Password" required>
+							<i class='bx bx-hide eye-icon'></i>
+						</div>
+
+						<div class="field button-field">
+							<button id="signupBtn">Signup</button>
+						</div>
+					</form>
+
+					<div class="form-link">
+						<p>Already have an account? <a href="/auth/login">Login</a>
+						</p>
+					</div>
+				</div>
+
+				<!--<div class="line"></div>
+
+				<div class="media-options">
+					<a href="#" class="field facebook">
+						<i class='bx bxl-facebook facebook-icon'></i>
+						<span>Login with Facebook</span>
+					</a>
+				</div>
+
+				<div class="media-options">
+					<a href="#" class="field google">
+						<img src="images/google.png" alt="Google" class="google-img">
+						<span>Login with Google</span>
+					</a>
+				</div>
+				-->
+			</div>
+		</section>
+	</body>
+</html>

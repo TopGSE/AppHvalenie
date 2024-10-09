@@ -1,0 +1,8 @@
+{
+  "restartable": "rs",
+  "ignore": ["*.test.js", "*.json"],
+  "verbose": true,
+  "events": {
+    "restart": "kill-port 8888"
+  }
+}

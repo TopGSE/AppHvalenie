@@ -18,3 +18,4 @@
 
 # Ignore node_modules if you're using npm
 /node_modules/
+.env
