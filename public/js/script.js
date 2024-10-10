@@ -1,7 +1,7 @@
 console.log("Script is loaded and running");
 document.addEventListener("DOMContentLoaded", loadSongs);
-showUsersBtn = document.getElementById('show-users-btn');
-
+const showUsersBtn = document.getElementById('show-users-btn');
+const hideUsersBtn = document.getElementById('hide-users-btn');
 
 function loadSongs() {
     const songList = document.getElementById('song-list');
@@ -93,37 +93,63 @@ function saveLyrics(index) {
     loadSongDetails(index);
 }
 
-const showUsers = async () => {
-	const response = await fetch('/admin/users');
-	const users = await response.json();
-	console.log(users);
+async function fetchUsers() {
+    try {
+        const response = await fetch('http://localhost:8888/admin/users');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const users = await response.json();
+        console.log(users);
+
+		document.getElementById('users-list').innerHTML = '';
+
+		const userListItems = users.map(user => {
+            return ` <li>${user.username}</li> `;
+        }).join(''); 
+
+		showUsersBtn.style.display = 'none';
+		hideUsersBtn.style.display = 'block';
+
+        document.getElementById('users-list').innerHTML = userListItems;
+
+    } catch (error) {
+        console.error('Error fetching users:', error);
+    }
+};
+
+showUsersBtn.addEventListener('click', fetchUsers);
+
+const hideUsers = () => {
+	document.getElementById('users-list').innerHTML = '';
+	showUsersBtn.style.display = 'block';
+	hideUsersBtn.style.display = 'none';
 }
 
+hideUsersBtn.addEventListener('click', hideUsers);
 
 const forms = document.querySelector(".forms"),
-    pwShowHide = document.querySelectorAll(".eye-icon"),
-    links = document.querySelectorAll(".link");
-
+  pwShowHide = document.querySelectorAll(".eye-icon"),
+  links = document.querySelectorAll(".link");
+// Add click event listener to each eye icon for toggling password visibility
 pwShowHide.forEach(eyeIcon => {
-    eyeIcon.addEventListener("click", () => {
-        let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
-
-        pwFields.forEach(password => {
-            if (password.type === "password") { 
-                password.type = "text"; 
-                eyeIcon.classList.replace("bx-hide", "bx-show"); 
-                return;
-            }
-            password.type = "password"; 
-            eyeIcon.classList.replace("bx-show", "bx-hide"); 
-        });
-
+  eyeIcon.addEventListener("click", () => {
+    let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+    pwFields.forEach(password => {
+      if (password.type === "password") { // If password is hidden
+        password.type = "text"; // Show password
+        eyeIcon.classList.replace("bx-hide", "bx-show"); // Change icon to show state
+        return;
+      }
+      password.type = "password"; // Hide password
+      eyeIcon.classList.replace("bx-show", "bx-hide"); // Change icon to hide state
     });
+  });
 });
-
+// Add click event listener to each link to toggle between forms
 links.forEach(link => {
-    link.addEventListener("click", e => {
-        e.preventDefault(); 
-        forms.classList.toggle("show-signup");
-    });
+  link.addEventListener("click", e => {
+    e.preventDefault(); // Prevent default link behavior
+    forms.classList.toggle("show-signup");
+  });
 });

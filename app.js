@@ -37,7 +37,6 @@ app.get('/admin/users', async (req, res) => {
     }
 });
 
-
 app.get('/auth/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) {
@@ -48,6 +47,6 @@ app.get('/auth/logout', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT , () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

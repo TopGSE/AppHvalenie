@@ -7,32 +7,29 @@
 		<link rel="stylesheet" href="/css/styles.css"/>
 		<link rel="preconnect" href="https://fonts.googleapis.com"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<header class="header-hvalenie">
 			<a href="/auth/register">Register</a> | <a href="/auth/login">Login</a>
 			<h1>Admin Panel - Хваление Емануил</h1>
-			<a href="/index" style="color: white;">Home</a>
+			<a href="/admin" style="color: white;">Home</a>
 			<a href="/auth/logout">Logout</a>
 		</header>
 
 		<main>
-			<div id="manage-users-container">
-				<h3>Manage Users</h3>
-				<button id="show-users-btn">Show Users</button>
-				<ul id="users-list"></ul>
-			</div>
-
 			<section id="search-songs">
 				<h2>Search Songs</h2>
 				<div id="search-container">
 					<input
-					type="text"
-					id="search-bar"
-					placeholder="Search for songs..."
-					oninput="filterSongs()"
-			/>
+						type="text"
+						id="search-bar"
+						placeholder="Search for songs..."
+						oninput="filterSongs()"
+					/>
 				</div>
 				<ul id="song-list"></ul>
 				<h1 id="song-title" style="display: none;"></h1>
@@ -43,6 +40,17 @@
 			<textarea id="edit-lyrics" style="display:none;"></textarea>
 			<button id="edit-lyrics-btn" style="display:none;">Edit Lyrics</button>
 			<button id="save-lyrics-btn" style="display:none;">Save Lyrics</button>
+
+			<div id="manage-users-container">
+				<h3>Manage Users</h3>
+				<div class="user-buttons">
+					<button id="show-users-btn">Show Users</button>
+					<button id="hide-users-btn" style="display: none;">Hide Users</button>
+				</div>
+				<ul id="users-list">
+					<!-- List of users will be displayed here -->
+				</ul>
+			</div>
 		</main>
 
 		<script src="/js/script.js" defer></script>

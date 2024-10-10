@@ -203,7 +203,7 @@ const songs = [
 		"Gm, Eb, Bb, A",
 		"Gm, Eb, F"
 	]
-	  },
+	},
     {
         title: "БОЖЕ ДОБЪР СИ",
         "lyrics": [

@@ -87,7 +87,7 @@ a:hover {
 
 #song-list {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	gap: 20px;
 }
 
@@ -134,51 +134,12 @@ button:hover {
 	background-color: #2980b9;
 }
 
-/*Media Queries*/
-@media (max-width: 1024px) {
-	#song-list {
-		grid-template-columns: repeat(3, 1fr);
-	}
+ul#users-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 5px;
 }
-
-@media (max-width: 768px) {
-	#song-list {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media (max-width: 480px) {
-	#song-list {
-		margin-left: 2.5rem;
-		grid-template-columns: 1fr;
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*LOGIN & REGISTER FORMS*/
 .container {
@@ -214,7 +175,7 @@ button:hover {
 	pointer-events: auto;
 }
 
-header {
+.header-login {
 	font-size: 28px;
 	font-weight: 600;
 	color: #232836;
@@ -231,6 +192,10 @@ form {
 	width: 100%;
 	margin-top: 20px;
 	border-radius: 6px;
+}
+
+.field input-field {
+	font-family: poppins, sans-serif;
 }
 
 .field input,
@@ -362,8 +327,29 @@ a.google span {
 	color: #232836;
 }
 
+
+/*Media Queries*/
 @media screen and (max-width: 400px) {
 	.form {
 		padding: 20px 10px;
+	}
+}
+
+@media (max-width: 1024px) {
+	#song-list {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	#song-list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 480px) {
+	#song-list {
+		margin-left: 2.5rem;
+		grid-template-columns: 1fr;
 	}
 }
