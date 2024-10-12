@@ -21,7 +21,6 @@ function loadSongs() {
         songList.appendChild(li);
     });
 }
-
 function loadSongDetails(index) {
     const song = songs[index];
     const songContainer = document.getElementById('song-container');
@@ -46,7 +45,6 @@ function loadSongDetails(index) {
         <div class="chords-container">${chordsHTML}</div>
     `;
 }
-
 function filterSongs() {
     const searchInput = document.getElementById('search-bar').value.toLowerCase();
     const songList = document.getElementById('song-list');
@@ -57,42 +55,6 @@ function filterSongs() {
         songsLi[i].style.display = songTitle.includes(searchInput) ? '' : 'none';
     }
 }
-
-function editLyrics(index) {
-    const song = songs[index];a
-    const songContainer = document.getElementById('song-container');
-
-    let editableLyricsHTML = '';
-    for (let i = 0; i < song.lyrics.length; i++) {
-        editableLyricsHTML += `
-            <textarea class="edit-lyrics" rows="2">${song.lyrics[i]}</textarea><br>
-        `;
-    }
-
-    songContainer.innerHTML = `
-        <div class="editable-lyrics-container">${editableLyricsHTML}</div>
-        <button id="save-lyrics-btn">Save</button>
-        <button id="cancel-edit-btn">Cancel</button>
-    `;
-
-    document.getElementById('save-lyrics-btn').addEventListener('click', () => saveLyrics(index));
-    document.getElementById('cancel-edit-btn').addEventListener('click', () => loadSongDetails(index));
-}
-
-function saveLyrics(index) {
-    const song = songs[index];
-    const lyricsTextAreas = document.getElementsByClassName('edit-lyrics');
-
-    const updatedLyrics = [];
-    for (let i = 0; i < lyricsTextAreas.length; i++) {
-        updatedLyrics.push(lyricsTextAreas[i].value);
-    }
-
-    song.lyrics = updatedLyrics;
-
-    loadSongDetails(index);
-}
-
 async function fetchUsers() {
     try {
         const response = await fetch('http://localhost:8888/admin/users');
@@ -117,9 +79,7 @@ async function fetchUsers() {
         console.error('Error fetching users:', error);
     }
 };
-
 showUsersBtn.addEventListener('click', fetchUsers);
-
 const hideUsers = () => {
 	document.getElementById('users-list').innerHTML = '';
 	showUsersBtn.style.display = 'block';
@@ -131,25 +91,26 @@ hideUsersBtn.addEventListener('click', hideUsers);
 const forms = document.querySelector(".forms"),
   pwShowHide = document.querySelectorAll(".eye-icon"),
   links = document.querySelectorAll(".link");
-// Add click event listener to each eye icon for toggling password visibility
 pwShowHide.forEach(eyeIcon => {
   eyeIcon.addEventListener("click", () => {
     let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
     pwFields.forEach(password => {
-      if (password.type === "password") { // If password is hidden
-        password.type = "text"; // Show password
-        eyeIcon.classList.replace("bx-hide", "bx-show"); // Change icon to show state
+      if (password.type === "password") { 
+        password.type = "text"; 
+        eyeIcon.classList.replace("bx-hide", "bx-show"); 
         return;
       }
-      password.type = "password"; // Hide password
-      eyeIcon.classList.replace("bx-show", "bx-hide"); // Change icon to hide state
+      password.type = "password"; 
+      eyeIcon.classList.replace("bx-show", "bx-hide");
     });
   });
 });
-// Add click event listener to each link to toggle between forms
 links.forEach(link => {
   link.addEventListener("click", e => {
-    e.preventDefault(); // Prevent default link behavior
+    e.preventDefault(); 
     forms.classList.toggle("show-signup");
   });
 });
+
+
+

@@ -1,6 +1,9 @@
 console.log('auth.js loaded');
+
+// Handle registration form submission
 document.getElementById('register-form').addEventListener('submit', async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
+
     const username = document.getElementById('register-username').value;
     const password = document.getElementById('register-password').value;
 
@@ -13,16 +16,10 @@ document.getElementById('register-form').addEventListener('submit', async (event
             body: JSON.stringify({ username, password }),
         });
 
-        if (!response.ok) {
-            throw new Error('Registration failed');
-        }
-
         const data = await response.json();
         document.getElementById('register-message').innerText = data.message || data.error;
     } catch (error) {
         console.error('Error during registration:', error);
-        document.getElementById('register-message').innerText = 'An error occurred during registration. Please try again.';
+        document.getElementById('register-message').innerText = 'An error occurred during registration.';
     }
 });
-
-

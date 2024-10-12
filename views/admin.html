@@ -14,13 +14,16 @@
 	</head>
 	<body>
 		<header class="header-hvalenie">
-			<a href="/auth/register">Register</a> | <a href="/auth/login">Login</a>
 			<h1>Admin Panel - Хваление Емануил</h1>
-			<a href="/admin" style="color: white;">Home</a>
-			<a href="/auth/logout">Logout</a>
+			<nav>
+				<a href="/auth/login">Login</a> | <a href="/auth/register">Register</a> |
+				<a href="/admin" style="color: white;">Home</a> |
+				<a href="/auth/logout">Logout</a>
+			</nav>
+
 		</header>
 
-		<main>
+		<main class="admin-page-main">
 			<section id="search-songs">
 				<h2>Search Songs</h2>
 				<div id="search-container">
@@ -35,11 +38,6 @@
 				<h1 id="song-title" style="display: none;"></h1>
 				<div style="display: none;" id="song-container" class="song"></div>
 			</section>
-
-			<!-- New elements for editing lyrics -->
-			<textarea id="edit-lyrics" style="display:none;"></textarea>
-			<button id="edit-lyrics-btn" style="display:none;">Edit Lyrics</button>
-			<button id="save-lyrics-btn" style="display:none;">Save Lyrics</button>
 
 			<div id="manage-users-container">
 				<h3>Manage Users</h3>
