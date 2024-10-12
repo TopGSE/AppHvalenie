@@ -59,7 +59,7 @@ function filterSongs() {
 }
 
 function editLyrics(index) {
-    const song = songs[index];
+    const song = songs[index];a
     const songContainer = document.getElementById('song-container');
 
     let editableLyricsHTML = '';

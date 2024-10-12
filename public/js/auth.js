@@ -1,4 +1,3 @@
-// Handle user registration
 console.log('auth.js loaded');
 document.getElementById('register-form').addEventListener('submit', async (event) => {
     event.preventDefault(); 

@@ -18,10 +18,8 @@ mongoose.connect(dbUri)
     .catch((err) => console.error('Failed to connect to MongoDB', err));
 
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, 'views', 'index.html'));
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
-
-app.use('/auth', authRoutes);
 
 app.get('/admin', (req, res) => {
     console.log('adminpage reached');
@@ -30,12 +28,14 @@ app.get('/admin', (req, res) => {
 
 app.get('/admin/users', async (req, res) => {
 	try {
-        const users = await User.find({}, 'username'); 
+        const users = await User.find({}, 'username');
         res.json(users);
     } catch (error) {
         res.status(500).json({ error: 'Internal server error.' });
     }
 });
+
+app.use('/auth', authRoutes);
 
 app.get('/auth/logout', (req, res) => {
     req.session.destroy((err) => {
