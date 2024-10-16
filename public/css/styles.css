@@ -14,6 +14,77 @@ body {
 	padding: 0;
 }
 
+.error-container {
+	border: 1px solid red;
+	background-color: #ffe0e0;
+	color: red;
+	padding: 20px;
+	margin: 50px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.error-container a {
+	text-decoration: none;
+	color: blue;
+	font-weight: bold;
+}
+
+.alert.alert-danger {
+	color: red;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #ffe0e0;
+}
+
+.modal {
+	display: flex;
+	/* Use Flexbox for centering */
+	position: fixed;
+	/* Position fixed to cover the entire screen */
+	z-index: 1000;
+	/* Layering above other elements */
+	left: 0;
+	/* Align to the left edge */
+	top: 0;
+	/* Align to the top edge */
+	width: 100%;
+	/* Full width */
+	height: 100%;
+	/* Full height */
+	background-color: rgba(0, 0, 0, 0.5);
+	/* Semi-transparent background */
+	justify-content: center;
+	/* Center horizontally */
+	align-items: center;
+	/* Center vertically */
+}
+
+.modal-content {
+	background-color: white;
+	/* Background color of the modal */
+	padding: 20px;
+	/* Inner spacing */
+	border-radius: 5px;
+	/* Rounded corners */
+	width: 400px;
+	/* Width of the modal */
+	text-align: center;
+	/* Centered text */
+}
+
+.close {
+	float: right;
+	/* Float close button to the right */
+	font-size: 24px;
+	/* Size of the close button */
+	cursor: pointer;
+	/* Pointer cursor on hover */
+}
+
 .header-hvalenie {
 	background-color: rgb(105, 130, 255);
 	color: white;
@@ -24,12 +95,12 @@ body {
 main {
 	margin: 20px;
 	max-width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
 	font-family: Montserrat, sans-serif;
 }
 
 #search-container {
+	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 }
@@ -42,6 +113,11 @@ main {
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	box-sizing: border-box;
+}
+
+#search-songs h3,
+h2 {
+	text-align: center;
 }
 
 ul {
@@ -87,7 +163,7 @@ a:hover {
 
 #song-list {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 20px;
 }
 
@@ -119,6 +195,7 @@ div#song-container {
 	border-radius: 4px;
 }
 
+/* General button styles for all buttons */
 button {
 	padding: 10px 20px;
 	margin: 10px 5px;
@@ -133,6 +210,23 @@ button {
 button:hover {
 	background-color: #2980b9;
 }
+
+/* Specific styles for YouTube button */
+.youtube-button {
+	display: inline-block;
+	padding: 10px 20px;
+	margin-top: 20px;
+	background-color: #e74c3c;
+	/* Red for YouTube */
+	text-align: center;
+	font-size: 16px;
+}
+
+.youtube-button:hover {
+	background-color: #c0392b;
+	/* Darker red on hover */
+}
+
 
 ul#users-list {
 	display: grid;
@@ -341,6 +435,7 @@ a.google span {
 	opacity: 0.6;
 	color: #232836;
 }
+
 
 
 /*Media Queries*/

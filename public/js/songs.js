@@ -19,6 +19,9 @@ const songs = [
 			"	",
 			"C, D, G, Em",
 			"Am, D, G , G7"
+		],
+		url: [
+			"https://www.youtube.com/watch?v=EkT6KjVw0Go",
 		]
     },
     {
@@ -51,6 +54,9 @@ const songs = [
 			"Hm, G, D, A",
 			"Hm, G, D, A",
 			"Hm, G, D, A"
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
@@ -116,6 +122,9 @@ const songs = [
 			"",
 			"C, F, C, C",
 			"Am, C, G, C",
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
@@ -145,6 +154,9 @@ const songs = [
 			"Am, E7,",
 			"",
 			"Dm, G, F, C / E7"
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
@@ -164,6 +176,9 @@ const songs = [
 			"Dm, Gm, C, F, A7, Dm",
 			"",
 			"Dm, Gm, A7, Dm, A7",
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
@@ -188,21 +203,24 @@ const songs = [
 		  "ДНЕС ЖИВОТА МИ АЗ ПРЕДАВАМ ТИ, ЗА ТЕБЕ ВСИЧКО Е",
 		  "ДОБРИНАТА НА МОЯ БОГ МЕ СЛЕДВА ВСЕКИ ДЕН"
 		],
-		chords: [
-		"Bb, Eb, Bb, A",
-		"Gm, Eb, F",
-		"Gm, Eb, Bb, A",
-		"Gm, Eb, F",
-		"",
-		"Eb, Bb, Eb, Bb",
-		"F, Eb, Bb, A",
-		"Gm, Eb, F, Bb",
-		"",
-		"Bb, Eb, Bb, A",
-		"Gm, Eb, F",
-		"Gm, Eb, Bb, A",
-		"Gm, Eb, F"
-	]
+			chords: [
+			"Bb, Eb, Bb, A",
+			"Gm, Eb, F",
+			"Gm, Eb, Bb, A",
+			"Gm, Eb, F",
+			"",
+			"Eb, Bb, Eb, Bb",
+			"F, Eb, Bb, A",
+			"Gm, Eb, F, Bb",
+			"",
+			"Bb, Eb, Bb, A",
+			"Gm, Eb, F",
+			"Gm, Eb, Bb, A",
+			"Gm, Eb, F"
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
+		]
 	},
     {
         title: "БОЖЕ ДОБЪР СИ",
@@ -216,17 +234,20 @@ const songs = [
 		"Ний хвалим Те! Алелуя! Алелуя!",
 		"Ний хвалим Те, Ти Си добър!"
 	],
-	"chords": [
-		"D, A, G, E",
-		"G, A",
-		"C, D",
-		"D, A",
-		"",
-		"D, A, G, C",
-		"D, A",
-		"D, A, G, C",
-		"D, A, G, C"
-	]
+		chords: [
+			"D, A, G, E",
+			"G, A",
+			"C, D",
+			"D, A",
+			"",
+			"D, A, G, C",
+			"D, A",
+			"D, A, G, C",
+			"D, A, G, C"
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
+		]
     },
     {
         title: "СЪКРУШАВАЩА ЛЮБОВ",
@@ -270,6 +291,9 @@ const songs = [
 			"",
 			"D, C, Bb",
 			"D, C, Bb"
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
@@ -279,6 +303,9 @@ const songs = [
 		],
         chords: [
 			"Am, Em, G, C / E7",
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
@@ -295,6 +322,9 @@ const songs = [
 		],
         chords: [
 			"A, F#m, D, E / LOOP",
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
@@ -329,6 +359,9 @@ const songs = [
 		],
         chords: [
 			"E, A, B / LOOP",
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
@@ -356,12 +389,18 @@ const songs = [
 			"C, D, Em",
 			"",
 			"Em, D, C",
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
         title: "ХВАЛЕТЕ ГО",
         lyrics: [],
-        chords: []
+        chords: [],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
+		]
     },
     {
         title: "ИЗГРЯВА ЗОРАТА",
@@ -369,21 +408,33 @@ const songs = [
         chords: [
 			"F, C7 / X2",
 			"Bb, C, Am, Dm",
+		],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
 		]
     },
     {
         title: "КОЛКО СЛАВНО Е ИМЕТО",
         lyrics: [],
-        chords: []
+        chords: [],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
+		]
     },
     {
         title: "ИЗПЪЛНИ ТОВЯ ДУХ",
         lyrics: [],
-        chords: []
+        chords: [],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
+		]
     },
     {
         title: "ЦАРУВАЙ В МЕН",
         lyrics: [],
-        chords: []
+        chords: [],
+		url: [
+			"https://www.youtube.com/watch?v=XEUK84K09AA"
+		]
     }
 ];

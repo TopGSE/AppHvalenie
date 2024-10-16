@@ -11,6 +11,11 @@
 			<div class="form signup">
 				<div class="form-content">
 					<header class="header-login">Signup</header>
+					<% if (flashMessages.length > 0) { %>
+						<div class="alert alert-danger">
+							<%= flashMessages.join('<br>') %>
+						</div>
+					<% } %>
 					<form id="register-form" action="/auth/register" method="POST">
 						<div class="field input-field">
 							<input type="text" id="register-username" name="username" placeholder="Username" required>

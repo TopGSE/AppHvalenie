@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { registerPage, loginPage, registerUser, loginUser, logoutUser } = require('../controllers/authControllers'); // Correct import
+const { registerPage, loginPage, registerUser, loginUser, logoutUser } = require('../middleware/authentication');
 const path = require('path');
 
 router.get('/login', loginPage);

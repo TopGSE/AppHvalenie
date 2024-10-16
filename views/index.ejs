@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Church Songs</title>
+	<link rel="stylesheet" href="/css/styles.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+	<header class="header-hvalenie">
+		<h1>Хваление Емануил</h1>
+		<nav>
+			<a href="/" style="color: white;">Home</a> |
+			<a href="/auth/login">Login</a> |
+			<a href="/auth/register">Register</a> |
+			<a href="/logout">Logout</a> |
+			<a href="/manage-users">Manage Users</a>
+			<i class="fa-regular fa-user"></i>
+		</nav>
+		<% if (user) { %>
+			<h3 id="welcome-message">Welcome, <%= user.username %>!</h3>
+			<% } else { %>
+				<h3 id="welcome-message">Welcome, Guest!</h3>
+				<% } %>
+	</header>
+
+	<% if (flashMessages.length> 0) { %>
+		<div class="alert alert-danger">
+			<%= flashMessages.join('<br>') %>
+		</div>
+		<% } %>
+
+			<main>
+				<div id="search-container">
+					<input type="text" id="search-bar" placeholder="Search for songs..." oninput="filterSongs()" />
+				</div>
+				<ul id="song-list"></ul>
+				<h1 id="song-title" style="display: none;"></h1>
+				<div style="display: none;" id="song-container" class="song"></div>
+			</main>
+
+			<script src="/js/script.js" defer></script>
+			<script src="/js/songs.js" defer></script>
+			<script src="/js/auth.js" defer></script>
+			<script src="https://kit.fontawesome.com/50a3684b43.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

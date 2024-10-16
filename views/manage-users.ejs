@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Admin Panel - Church Songs</title>
+	<link rel="stylesheet" href="/css/styles.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+	<header class="header-hvalenie">
+		<h1>Admin - Хваление Емануил</h1>
+		<nav>
+			<a href="/">Home</a> |
+			<a href="/auth/login">Login</a> |
+			<a href="/auth/register">Register</a> |
+			<a href="/logout">Logout</a> |
+			<a href="/manage-users">Manage Users</a>
+			<i class="fa-regular fa-user"></i>
+		</nav>
+	</header>
+
+	<main>
+		<div id="manage-users-container">
+			<h3>Manage Users</h3>
+			<div class="user-buttons">
+				<button id="show-users-btn" onclick="fetchUsers()">Show Users</button>
+				<button id="hide-users-btn" onclick="hideUsers()" style="display: none;">Hide Users</button>
+				<% if (flashMessages.length> 0) { %>
+					<div class="alert alert-danger">
+						<%= flashMessages.join('<br>') %>
+					</div>
+					<% } %>
+			</div>
+			<button class="promote-user-btn" id="promoteButton" onclick="handlePromoteUser()">Promote or Demote</button>
+			<ul id="users-list">
+				<!-- List of users will be displayed here -->
+			</ul>
+		</div>
+
+		<!-- Promotion/Demotion Modal -->
+		<div id="promotion-modal" class="modal" style="display: none;">
+			<div class="modal-content">
+				<span class="close" id="close-modal" onclick="closePromotionModal()">&times;</span>
+				<h3>Select a User to Promote/Demote</h3>
+				<label for="user-select">User:</label>
+				<select id="user-select">
+					<option value="" disabled selected>Select a user</option>
+					<!-- Dynamic user list will be populated here -->
+				</select>
+				<br><br>
+				<label for="role-select">Role:</label>
+				<select id="role-select">
+					<option value="reader">Reader</option>
+					<option value="admin">Admin</option>
+					<option value="super-admin">Super Admin</option>
+				</select>
+				<br><br>
+				<button id="promote-btn" onclick="submitPromotion()">Promote/Demote</button>
+			</div>
+		</div>
+	</main>
+
+	<script src="/js/script.js" defer></script>
+	<script src="/js/auth.js" defer></script>
+	<script src="/js/admin.js" defer></script>
+	<script src="https://kit.fontawesome.com/50a3684b43.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
