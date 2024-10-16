@@ -24,29 +24,35 @@ router.get('/manage-users', isAdmin, (req, res) => {
 });
 
 router.post('/promote-user', isSuperAdmin, async (req, res) => {
-	const {userId, newrole} = req.body;
+    const { userId, newrole } = req.body;
 
-	if(!['reader', 'admin', 'super-admin'].includes(newrole)) {
-		req.flash('error', 'Invalid role');
-		return res.redirect('/manage-users');
-	}
+    // Validate the new role
+    if (!['reader', 'admin', 'super-admin'].includes(newrole)) {
+        req.flash('error', 'Invalid role');
+        return res.redirect('/manage-users');
+    }
 
-	try {
-		const user = await User.findById(userId);
-		if(!user) {
-			req.flash('error', 'User not found');
-			return res.redirect('/manage-users');
-		}
+    try {
+        // Find the user by ID
+        const user = await User.findById(userId);
+        if (!user) {
+            req.flash('error', 'User not found');
+            return res.redirect('/manage-users');
+        }
 
-		user.role = newrole;
-		await user.save();
+        // Update the user's role
+        user.role = newrole;
+        await user.save();
 
-		res.flash('success', 'User role updated');
-		res.redirect('/manage-users');
-	} catch(error) {
-		req.flash('error', 'Internal server error');
-		res.redirect('/manage-users');
-	}
+        // Set a success flash message
+        req.flash('success', 'User role updated');
+        res.redirect('/manage-users');
+    } catch (error) {
+        console.error('Error promoting user:', error);
+        req.flash('error', 'Internal server error');
+        res.redirect('/manage-users');
+    }
 });
+
 
 module.exports = router;

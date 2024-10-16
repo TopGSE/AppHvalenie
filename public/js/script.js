@@ -100,24 +100,22 @@ function hideUsers () {
 	hideUsersBtn.style.display = 'none';
 }
 
-// Function to handle promoting a user
 function handlePromoteUser() {
     console.log('Promote user button clicked');
     document.getElementById('promotion-modal').style.display = 'block';
     populateUserSelect();
 }
 
-// Function to populate user select dropdown
 async function populateUserSelect() {
     try {
         const response = await fetch('/admin/users');
         const users = await response.json();
         const userSelect = document.getElementById('user-select');
-        userSelect.innerHTML = ''; // Clear existing options
+        userSelect.innerHTML = '';
 
         users.forEach(user => {
             const option = document.createElement('option');
-            option.value = user._id; // MongoDB ID
+            option.value = user._id;
             option.text = `${user.username} (${user.role})`;
             userSelect.appendChild(option);
         });
@@ -126,30 +124,39 @@ async function populateUserSelect() {
     }
 }
 
-// Function to close the promotion modal
 function closePromotionModal() {
     document.getElementById('promotion-modal').style.display = 'none';
 }
 
 // Function to submit promotion
-async function submitPromotion() {
+function submitPromotion() {
+    // Get the form values
     const userId = document.getElementById('user-select').value;
     const newRole = document.getElementById('role-select').value;
 
-    try {
-        const response = await fetch('/admin/promote-user', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ userId, newRole })
-        });
-        const data = await response.json();
-        alert(data.message || 'User updated successfully');
-        closePromotionModal();
-    } catch (err) {
-        alert('An error occurred: ' + err.message);
-    }
+    // Create a form element dynamically
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/admin/promote-user';
+
+    // Create hidden input fields for userId and newRole
+    const userIdInput = document.createElement('input');
+    userIdInput.type = 'hidden';
+    userIdInput.name = 'userId';
+    userIdInput.value = userId;
+
+    const newRoleInput = document.createElement('input');
+    newRoleInput.type = 'hidden';
+    newRoleInput.name = 'newrole'; // Correct spelling for your backend to pick up
+    newRoleInput.value = newRole;
+
+    // Append the inputs to the form
+    form.appendChild(userIdInput);
+    form.appendChild(newRoleInput);
+
+    // Append the form to the body and submit it
+    document.body.appendChild(form);
+    form.submit();
 }
 
 // Event listeners
@@ -184,6 +191,25 @@ links.forEach(link => {
         forms.classList.toggle("show-signup");
     });
 });
+
+function showToast(title, message, type) {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type} show`;
+    toast.innerHTML = `<strong>${title}</strong><p>${message}</p>`;
+
+    const toastContainer = document.getElementById('toast-container');
+    toastContainer.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+        toast.style.opacity = 0;
+        toast.style.transform = 'translateY(-20px)';
+
+        setTimeout(() => {
+            toastContainer.removeChild(toast);
+        }, 500);
+    }, 3000);
+}
 
 
 
