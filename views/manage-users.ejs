@@ -22,6 +22,12 @@
 			<a href="/manage-users">Manage Users</a>
 			<i class="fa-regular fa-user"></i>
 		</nav>
+		<% if (user) { %>
+			<h3 id="welcome-message">Welcome, <%= user.username %>!</h3>
+			<% } else { %>
+				<h3 id="welcome-message">Welcome, Guest!</h3>
+				<% } %>
+
 	</header>
 
 	<main>
@@ -60,15 +66,21 @@
 					<option value="super-admin">Super Admin</option>
 				</select>
 				<br><br>
-				<button id="promote-btn" onclick="submitPromotion()">Promote/Demote</button>
+				<button id="promote-btn" onclick="submitPromotion();">
+					Promote/Demote
+				</button>
 			</div>
 		</div>
 	</main>
 
+	<div id="toast-container" class="toast-container">
+		<!-- Toast messages will be dynamically added here -->
+	</div>
 
 
 
 
+	<script src="/js/toast.js"></script>
 	<script src="/js/script.js" defer></script>
 	<script src="/js/auth.js" defer></script>
 	<script src="/js/admin.js" defer></script>

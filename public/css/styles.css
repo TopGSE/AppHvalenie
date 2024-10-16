@@ -7,16 +7,23 @@
 	font-family: 'Poppins', sans-serif;
 }
 
+
 body {
 	font-family: Arial, sans-serif;
 	background-color: #f7f7f7;
 	margin: 0;
 	padding: 0;
-	/*background-image: url('../images/background-image.jpg');
+
+}
+
+.login-register_background {
+	background-image: url('../images/login-backgroundimage.jpeg');
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
-	transition: .3s ease-in-out;*/
+	transition: .3s ease-in-out;
+	backdrop-filter: blur(5px);
+	z-index: 999;
 }
 
 .error-container {
@@ -47,28 +54,20 @@ body {
 
 .modal {
 	display: flex;
-	/* Use Flexbox for centering */
 	position: fixed;
-	/* Position fixed to cover the entire screen */
 	z-index: 1000;
-	/* Layering above other elements */
 	left: 0;
-	/* Align to the left edge */
 	top: 0;
-	/* Align to the top edge */
 	width: 100%;
-	/* Full width */
 	height: 100%;
-	/* Full height */
 	background-color: rgba(0, 0, 0, 0.5);
-	/* Semi-transparent background */
 	justify-content: center;
-	/* Center horizontally */
 	align-items: center;
-	/* Center vertically */
 }
 
 .modal-content {
+	margin-left: 45rem;
+	margin-top: 20rem;
 	background-color: white;
 	/* Background color of the modal */
 	padding: 20px;
@@ -102,6 +101,12 @@ main {
 	max-width: 1200px;
 	margin: auto;
 	font-family: Montserrat, sans-serif;
+	/*background-image: url('../images/background-image.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	transition: .3s ease-in-out;
+	filter: blur(8px);*/
 }
 
 #search-container {
@@ -248,7 +253,6 @@ ul#users-list {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #4070f4;
 	column-gap: 30px;
 }
 
@@ -359,6 +363,10 @@ form {
 	margin-top: 10px;
 }
 
+.form-link p {
+	margin-top: 2rem;
+}
+
 .form-link span,
 .form-link a {
 	font-size: 14px;
@@ -467,4 +475,52 @@ a.google span {
 		margin-left: 2.5rem;
 		grid-template-columns: 1fr;
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.toast-container {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 9999;
+}
+
+.toast {
+	background-color: #333;
+	color: white;
+	padding: 15px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	opacity: 0.9;
+	transition: opacity 0.5s ease;
+}
+
+.toast.success {
+	background-color: #28a745;
+}
+
+.toast.error {
+	background-color: #dc3545;
+}
+
+.toast.warning {
+	background-color: #ffc107;
+}
+
+.toast.fade-out {
+	opacity: 0;
 }

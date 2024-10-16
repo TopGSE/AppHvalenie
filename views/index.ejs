@@ -44,18 +44,10 @@
 				<div style="display: none;" id="song-container" class="song"></div>
 			</main>
 
-			<% if (flashMessages && flashMessages.length> 0) { %>
-				<% flashMessages.forEach(function(msg) { %>
-					const type = msg.startsWith('Error') ? 'error' : 'success'; // Determine type based on message
-					showToast('Notification', '<%= msg %>', type);
-						<% }); %>
-							<% } %>
-
-								<script src="/js/script.js" defer></script>
-								<script src="/js/songs.js" defer></script>
-								<script src="/js/auth.js" defer></script>
-								<script src="https://kit.fontawesome.com/50a3684b43.js"
-									crossorigin="anonymous"></script>
+			<script src="/js/script.js" defer></script>
+			<script src="/js/songs.js" defer></script>
+			<script src="/js/auth.js" defer></script>
+			<script src="https://kit.fontawesome.com/50a3684b43.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
